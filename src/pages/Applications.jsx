@@ -1,10 +1,16 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const Applications = () => {
   return (
-    <div>
-      <h1>Your Applications</h1>
-    </div>
+    <>
+      <Navbar />
+      <div>
+        <h2>Your Resume</h2>
+        <div></div>
+      </div>
+    </>
   );
 };
 

@@ -1,40 +1,47 @@
-import { createContext, useEffect, useState } from "react";
-import { jobsData } from "../assets/assets";
+import { createContext, useEffect, useState } from "react"; // Import React hooks
+import { jobsData } from "../assets/assets"; // Import initial job data
 
+// Creating a context to share state globally
 export const AppContext = createContext();
 
 export const AppContextProvider = (props) => {
+  // State to store search filter values (job title and location)
   const [searchFilter, setSearchFilter] = useState({
     title: "",
     location: "",
   });
 
+  // State to check if a search has been performed
   const [isSearched, setIsSearched] = useState(false);
 
+  // State to store the list of jobs
   const [jobs, setJobs] = useState([]);
 
-  // Function to fetch job data
+  // Function to fetch job data (here using static data from assets)
   const fetchJobs = async () => {
     try {
-      setJobs(jobsData);
+      setJobs(jobsData); // Set jobs state with the data
     } catch (error) {
-      console.error("Error fetching jobs:", error);
+      console.error("Error fetching jobs:", error); // Log errors if fetching fails
     }
   };
 
+  // useEffect runs once on component mount to fetch jobs initially
   useEffect(() => {
     fetchJobs();
   }, []);
 
+  // Object to pass all states and setters via context
   const value = {
-    searchFilter,
-    setSearchFilter,
-    isSearched,
-    setIsSearched,
-    jobs,
-    setJobs,
+    searchFilter, // current search filter
+    setSearchFilter, // function to update search filter
+    isSearched, // boolean flag if search is done
+    setIsSearched, // function to update search status
+    jobs, // array of jobs
+    setJobs, // function to update jobs
   };
 
+  // Providing context values to all child components
   return (
     <AppContext.Provider value={value}>{props.children}</AppContext.Provider>
   );
