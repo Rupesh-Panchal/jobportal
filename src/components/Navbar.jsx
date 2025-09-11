@@ -45,7 +45,7 @@ const Navbar = () => {
           <div className="flex gap-4 max-sm:text-xs">
             <button
               onClick={(e) => setShowRecruiterLogin(true)}
-              className="text-gray-600"
+              className="text-gray-600 cursor-pointer"
             >
               Recruiter Login
             </button>
@@ -53,7 +53,7 @@ const Navbar = () => {
               onClick={(e) => {
                 openSignIn(); // Open the sign-in modal when clicked
               }}
-              className="bg-blue-600 text-white px-5 sm:px-9 py-2 rounded-full"
+              className="bg-blue-600 text-white px-5 sm:px-9 py-2 rounded-full cursor-pointer"
             >
               Login {/* Button to trigger login modal */}
             </button>
