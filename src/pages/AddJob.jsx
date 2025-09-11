@@ -100,7 +100,7 @@ const AddJob = () => {
           />
         </div>
 
-        <button className="w-28 py-3 mt-4 bg-black text-white rounded-lg">
+        <button className="w-28 py-3 mt-4 bg-black text-white rounded-lg cursor-pointer">
           ADD
         </button>
       </form>
