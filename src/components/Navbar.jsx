@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { assets } from "../assets/assets.js";
 import { useClerk, UserButton, useUser } from "@clerk/clerk-react";
 import { Link, useNavigate } from "react-router-dom";
+import { AppContext } from "../context/AppContext.jsx";
 
 const Navbar = () => {
   {
@@ -15,6 +16,8 @@ const Navbar = () => {
     /*  Navigate to Homepage */
   }
   const navigate = useNavigate(); // Hook to programmatically navigate
+
+  const { setShowRecruiterLogin } = useContext(AppContext);
 
   return (
     <div className="shadow py-4 mt-3">
@@ -40,7 +43,12 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex gap-4 max-sm:text-xs">
-            <button className="text-gray-600">Recruiter Login</button>
+            <button
+              onClick={(e) => setShowRecruiterLogin(true)}
+              className="text-gray-600"
+            >
+              Recruiter Login
+            </button>
             <button
               onClick={(e) => {
                 openSignIn(); // Open the sign-in modal when clicked

@@ -17,6 +17,9 @@ export const AppContextProvider = (props) => {
   // State to store the list of jobs
   const [jobs, setJobs] = useState([]);
 
+  // State to control the visibility of the recruiter login modal
+  const [showRecruiterLogin, setShowRecruiterLogin] = useState(false);
+
   // Function to fetch job data (here using static data from assets)
   const fetchJobs = async () => {
     try {
@@ -39,6 +42,8 @@ export const AppContextProvider = (props) => {
     setIsSearched, // function to update search status
     jobs, // array of jobs
     setJobs, // function to update jobs
+    showRecruiterLogin, //boolean to show/hide recruiter login modal
+    setShowRecruiterLogin, //function to update showRecruiterLogin state
   };
 
   // Providing context values to all child components
