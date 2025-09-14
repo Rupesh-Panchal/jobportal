@@ -1,11 +1,5 @@
-# Node dependencies
-node_modules/
+# Node modules
+server/node_modules/
 
-# Logs
-npm-debug.log
-
-# Environment variables
-.env
-
-# Misc
-.DS_Store
+# Environment files
+server/.env
